@@ -52,8 +52,7 @@ form.addEventListener("param", async (event) => {
   frame.style.display = "block";
   frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 });
-
-var arr = url.split('?');
+var arr = window.location.href;.split('?');
 
 if (arr.length > 1 && arr[1] !== '') {
   const event = new Event("param");
