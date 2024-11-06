@@ -20,8 +20,8 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
-
-if(new URLSearchParams(new URL(window.location).search).has("dest")) {
+params = new URLSearchParams(new URL(window.location).search)
+if(params.has("dest")) {
 	try {
 		await registerSW();
 	} catch (err) {
@@ -29,7 +29,7 @@ if(new URLSearchParams(new URL(window.location).search).has("dest")) {
 		errorCode.textContent = err.toString();
 		throw err;
 	}
-	const url = search(address.value, searchEngine.value);
+	const url = decodeURIComponent(params.get("dest"));
 	
 	let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 	if (await connection.getTransport() !== "/epoxy/index.mjs") {
