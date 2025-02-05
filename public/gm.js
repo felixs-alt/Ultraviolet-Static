@@ -18,5 +18,9 @@ async function redirect(params) {
 		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
 	}
 	frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+	const otMeta = document.createElement('meta');
+	otMeta.httpEquiv = 'origin-trial';
+	otMeta.content = 'TOKEN_GOES_HERE';
+	document.head.append(otMeta);
 }
 redirect(new URLSearchParams(new URL(window.location).search))
