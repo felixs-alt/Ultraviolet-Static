@@ -20,7 +20,7 @@ async function redirect(params) {
 	frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 	const otMeta = document.createElement('meta');
 	otMeta.httpEquiv = 'origin-trial';
-	otMeta.content = 'TOKEN_GOES_HERE';
+	otMeta.content = 'Anl7AHwaXG9etmYYrpHdoKegY4bJsLPdKWuWJq/DxeA0bk9O0QHAbasbZUjRPKAJ/OLa0WrArJWH8SX8XGxpgAsAAABleyJvcmlnaW4iOiJodHRwczovL2dtdXYuZmx5LmRldjo0NDMiLCJmZWF0dXJlIjoiV2ViQXNzZW1ibHlKU1Byb21pc2VJbnRlZ3JhdGlvbiIsImV4cGlyeSI6MTc0NDY3NTIwMH0=';
 	document.head.append(otMeta);
 }
 redirect(new URLSearchParams(new URL(window.location).search))
